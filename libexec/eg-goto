@@ -13,8 +13,8 @@ args = parser.parse_args()
 if args.application == 'jira':
 	url = 'https://jira.expedia.biz/secure/RapidBoard.jspa?projectKey=EGE&rapidView=5761'
 	if args.issue != None:
-		url += '&view=detail&selectedIssue=EGE-' + args.issue
-if args.application == 'bluejeans':
+		url = 'https://jira.expedia.biz/browse/EGE-' + args.issue
+if args.application == 'bluejeans':		
 	url = 'https://bluejeans.com/7350209398'
 if args.application == 'stash':
 	url = 'https://stash.sea.corp.expecn.com/projects/EGES/repos/'
