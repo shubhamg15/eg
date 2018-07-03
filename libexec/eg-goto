@@ -1,1 +1,15 @@
-python -m webbrowser -t "http://www.python.org"
+#!/usr/bin/env python
+
+import webbrowser
+import argparse
+
+parser = argparse.ArgumentParser(description='Accept URL parameters on the command line.')
+parser.add_argument('application', metavar='application', type=str, nargs=1,
+                   help='The egencia application name')
+args = parser.parse_args()
+if args.application[0] == 'jira':
+	url = 'https://jira.expedia.biz/secure/RapidBoard.jspa?projectKey=EGE&rapidView=5761'
+if args.application[0] == 'bluejeans':
+	url = 'https://bluejeans.com/7350209398'
+print(url)
+webbrowser.open(url)
