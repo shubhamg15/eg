@@ -4,19 +4,19 @@ import webbrowser
 import argparse
 
 parser = argparse.ArgumentParser(description='Accept URL parameters on the command line.')
-parser.add_argument('application', metavar='application', type=str, nargs=1, help='application name')
-parser.add_argument('-r', '--repo', help='stash repository name')
-parser.add_argument('-i', '--issue', help='jira issue id number w/o EGE-')
+parser.add_argument('application', help='The egencia application name', action='store')
+parser.add_argument('-r', '--repo', help='Stash repository name')
+parser.add_argument('-i', '--issue', help='Jira issue id number w/o EGE-')
 
 args = parser.parse_args()
 
-if args.application[0] == 'jira':
+if args.application == 'jira':
 	url = 'https://jira.expedia.biz/secure/RapidBoard.jspa?projectKey=EGE&rapidView=5761'
 	if args.issue != None:
 		url += '&view=detail&selectedIssue=EGE-' + args.issue
-if args.application[0] == 'bluejeans':
+if args.application == 'bluejeans':
 	url = 'https://bluejeans.com/7350209398'
-if args.application[0] == 'stash':
+if args.application == 'stash':
 	url = 'https://stash.sea.corp.expecn.com/projects/EGES/repos/'
 	if args.repo != None:
 		url += args.repo
